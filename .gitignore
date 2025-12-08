@@ -9,6 +9,7 @@ dist
 .git
 yarn.lock
 package-lock.json
+/*/gitkeep
 
 # Node dependencies
 node_modules
