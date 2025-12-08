@@ -914,3 +914,7 @@ vendors:
 css: css
 js: js
 images: images
+
+hexo_markmap:
+  darkThemeCssSelector: '.dark'
+  CDN: 'fastly' 
