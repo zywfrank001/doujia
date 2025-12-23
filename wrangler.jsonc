@@ -18,7 +18,7 @@
 
 	// --- Cloudflare Pages 特定配置（用于 Git 集成自动构建时）---
 	// 当通过 Cloudflare Pages 的 Git 集成进行构建和部署时，以下设置会生效
-	"pages_build_output_dir": "public"
+	"pages_build_output_dir": "public",
 
 	// --- 以下为高级/可选配置 ---
 	// 如果您的静态站点需要用到 Node.js API（例如使用了某些特定的 npm 包），可以启用此标志
@@ -49,4 +49,20 @@
 	// "r2_buckets": [
 	//   { "binding": "MY_BUCKET", "bucket_name": "my-bucket" }
 	// ]
+
+	"observability": {
+    "enabled": false,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  }
 }
