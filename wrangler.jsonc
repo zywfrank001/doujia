@@ -1,68 +1,18 @@
 {
-	// 可选：添加模式定义，为编辑器提供智能提示
-	//"$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
-
-	// 必需：您的项目名称
+	"$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
 	"name": "doujia",
-
-	// 必需：兼容性日期，用于确定运行时特性
 	"compatibility_date": "2024-12-22",
-
-	// --- 关键配置：明确指定部署静态资源 ---
-	// 如果您是部署一个目录下的静态文件（例如 Hexo 生成的 public 文件夹），请使用此配置
-	//"assets": {
-	//	"directory": "./public" // 指向包含 HTML/CSS/JS 等静态文件的目录
-	//},
-	// 注意：如果您同时配置了 "main" 和 "assets"，Wrangler 会优先将项目视为 Worker 脚本。
-	// 对于纯静态站点，请确保只使用 "assets" 配置，不要有 "main" 字段。
-
-	// --- Cloudflare Pages 特定配置（用于 Git 集成自动构建时）---
-	// 当通过 Cloudflare Pages 的 Git 集成进行构建和部署时，以下设置会生效
-	//"pages_build_output_dir": "public",
-
-	// --- 以下为高级/可选配置 ---
-	// 如果您的静态站点需要用到 Node.js API（例如使用了某些特定的 npm 包），可以启用此标志
-	// "compatibility_flags": ["nodejs_compat"],
-
-	// 定义非敏感的环境变量
-	// "vars": {
-	//   "SITE_NAME": "豆荚导航"
-	// },
-
-	// 为不同环境（预览/生产）设置变量
-	// "env": {
-	//   "preview": {
-	//     "vars": { "ENVIRONMENT": "preview" }
-	//   },
-	//   "production": {
-	//     "vars": { "ENVIRONMENT": "production" }
-	//   }
-	// }
-
-	// 绑定其他 Cloudflare 资源，如 KV、D1 数据库等（如果需要的话）
-	// "kv_namespaces": [
-	//   { "binding": "MY_KV", "id": "your-kv-namespace-id" }
-	// ],
-	// "d1_databases": [
-	//   { "binding": "MY_D1", "database_name": "my-database", "database_id": "your-database-id" }
-	// ],
-	// "r2_buckets": [
-	//   { "binding": "MY_BUCKET", "bucket_name": "my-bucket" }
-	// ]
-
-	"observability": {
-    "enabled": false,
-    "head_sampling_rate": 1,
-    "logs": {
-      "enabled": true,
-      "head_sampling_rate": 1,
-      "persist": true,
-      "invocation_logs": true
-    },
-    "traces": {
-      "enabled": false,
-      "persist": true,
-      "head_sampling_rate": 1
-    }
-  }
+	
+	// 关键：指定静态资源的目录路径
+	"assets": {
+		"directory": "./public"
+	},
+	
+	// 可选：兼容性标志
+	"compatibility_flags": ["nodejs_compat"],
+	
+	// 可选：环境变量
+	"vars": {
+		"SITE_NAME": "豆荚导航"
+	}
 }
