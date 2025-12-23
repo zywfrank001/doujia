@@ -1,5 +1,29 @@
 {
-    "name": "doujia",
-    "compatibility_date": "2024-12-22",
-    "pages_build_output_dir": "public"
+	"$schema": "node_modules/wrangler/config-schema.json", // 推荐添加：提供编辑器的智能提示和验证
+	"name": "doujia",
+	"compatibility_date": "2025-12-23",
+	"pages_build_output_dir": "public",
+	// 以下为可选增强配置
+	"compatibility_flags": [ // 兼容性标志，用于启用未来的运行时特性
+		"nodejs_compat" // 如果您的项目使用Node.js特有的API（如某些Next.js项目），此项非常重要 [5](@ref)
+	],
+	"env": { // 环境配置：允许您为预览（preview）和生产（production）设置不同的变量
+		"preview": {
+			"vars": {
+				"ENVIRONMENT": "preview"
+			}
+		},
+		"production": {
+			"vars": {
+				"ENVIRONMENT": "production"
+			}
+		}
+	},
+	"vars": { // 定义环境变量（非敏感信息）
+		"SITE_NAME": "豆荚导航"
+	},
+	"observability": { // 可观察性设置：帮助您查看和调试Worker的日志
+		"enabled": true,
+		"head_sampling_rate": 0.1 // 采样率，设为0.1表示记录10%的请求日志以控制成本 [7](@ref)
+	}
 }
