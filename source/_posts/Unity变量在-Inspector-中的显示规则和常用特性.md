@@ -5,8 +5,6 @@ tags:
 - Unity
 - C#
 categories:
-- Unity 入门
-- C#
 - 游戏开发
 ---
 
