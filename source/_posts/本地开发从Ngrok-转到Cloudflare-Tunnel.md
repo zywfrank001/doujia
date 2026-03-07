@@ -124,3 +124,25 @@ ingress:
 ```bash
 cloudflared tunnel run my-build-tunnel
 ```
+
+### Windows 命令行进阶
+    如果避免每次都敲命令行，太麻烦，设置成bat 文件，新建一个bat 文件 startCloudFlared.bat
+
+```bash
+
+@echo off
+title cloudflared-dev-proxy
+cloudflared tunnel run my-build-tunnel
+
+```
+
+ 再创建 一个 vps 文件 start-cloudflared.vbs
+
+```bash
+set ws=wscript.createobject("wscript.shell")
+ws.run "start-cloudflared.bat",0
+
+```
+这样的效果是实现没有命令行出现，多清爽！
+
+PS 当然 Linux 都是命令行，也就不用这些了。
