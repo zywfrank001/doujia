@@ -1,0 +1,61 @@
+// source/_data/styles.styl
+
+.word-tts-container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px dashed #ccc; 
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.tts-icon {
+  margin-left: 4px;
+  font-size: 0.9em;
+  color: #666; /* 替换 $grey-dim */
+  transition: color 0.2s;
+  
+  &:hover {
+    color: #007bff; /* 替换 $blue */
+  }
+}
+
+.word-tts-container.playing {
+  background-color: #e6f2ff; /* 添加背景色以便看到高亮 */
+  border-bottom: 1px solid transparent;
+}
+
+// source/_data/styles.styl
+
+// ... (保留之前的 .word-tts-container 等样式) ...
+
+/* =========================================
+   Markmap TTS Styles
+   ========================================= */
+
+// 1. 基础提示：所有带有 tts-enabled 类的元素，鼠标变手型
+.markmap svg .tts-enabled {
+  cursor: pointer !important;
+  transition: all 0.2s ease;
+}
+
+// 2. 悬停效果：加下划线并变色，模仿链接
+.markmap svg .tts-enabled:hover {
+  text-decoration: underline !important;
+  text-decoration-color: #007bff !important; // 蓝色下划线
+  text-underline-offset: 4px; // 下划线距离文字的距离
+  fill: #007bff !important; // SVG 文字颜色变蓝
+  color: #007bff !important; // 兼容某些渲染方式
+}
+
+// 3. (可选) 添加一个简单的 Tooltip 提示
+// 注意：SVG 不支持伪元素 ::after 完美显示文字，所以我们用 title 属性或者简单的背景提示
+// 这里我们使用一种技巧：利用 SVG 的 foreignObject 或者仅仅依赖 cursor 和 underline
+// 为了简单有效，我们主要依赖 Cursor 和 Underline。
+
+// 4. 播放时的临时高亮（JS 已经处理了 fill，这里确保过渡平滑）
+.markmap svg .tts-playing {
+  fill: #ff9800 !important; // 播放时变成橙色，区别于悬停的蓝色
+  transition: fill 0.2s;
+}
